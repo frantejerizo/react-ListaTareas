@@ -4,13 +4,13 @@ import Tarea from "./Tarea";
 
 const ListaTareas = () => {
     return (
-        <section className="container">
+        <article className="container">
             <ListGroup>
                 <Tarea></Tarea>
                 <Tarea></Tarea>
                 <Tarea></Tarea>
             </ListGroup>
-        </section>
+        </article>
     );
 };
 
