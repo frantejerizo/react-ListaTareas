@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 const FormularioTarea = () => {
+    //definimos el array de tareas como state, asi react lo actualize visualmente automaticamente
     const [listaTareas, setListaTareas] = useState([]) 
 
     // asi es el formato de la biblioteca para validar que descargamos
@@ -25,7 +26,6 @@ const FormularioTarea = () => {
         setListaTareas([...listaTareas,data.tarea])
         reset()
       }
-      
     }
 
     return (
@@ -43,7 +43,7 @@ const FormularioTarea = () => {
               <PlusCircle></PlusCircle>
             </Button>
           </Form>
-          <ListaTareas></ListaTareas>
+          <ListaTareas arrayListaTareas={listaTareas}></ListaTareas>
         </section>
     );
 };
