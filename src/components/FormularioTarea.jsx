@@ -28,6 +28,13 @@ const FormularioTarea = () => {
       }
     }
 
+    const borrarTarea = (nombreTarea) =>
+    {
+      // listaTareas.splice()
+      const tareasFiltradas = listaTareas.filter((tarea)=> tarea !== nombreTarea)
+      setListaTareas(tareasFiltradas)
+    }
+
     return (
         <section>
           <Form onSubmit={handleSubmit(PostValidacion)} className="container d-flex mb-4">
@@ -43,7 +50,7 @@ const FormularioTarea = () => {
               <PlusCircle></PlusCircle>
             </Button>
           </Form>
-          <ListaTareas arrayListaTareas={listaTareas}></ListaTareas>
+          <ListaTareas arrayListaTareas={listaTareas} funcionBorrarTarea={borrarTarea}></ListaTareas>
         </section>
     );
 };
