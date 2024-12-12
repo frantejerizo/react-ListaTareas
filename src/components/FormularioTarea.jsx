@@ -14,16 +14,17 @@ const FormularioTarea = () => {
     // esta es la funcion que se va a ejecutar si es que pasa todas las validaciones correctamente
     const PostValidacion = (data) =>
     {
-      // console.log(data.tarea)
-
-      // como es un estado listaTareas, hay una regal de react qued ice que no se puede modifcar, asi q hay q busacr una alternativa
-      // listaTareas.push(data.tarea)
-
-      //evitar tareas duplicadas
-
-      // ... operador spread -> creamos un array nuevo que copia todo lo que ya habia en listaTareas (eso lo hace con spread), y al final del array agregamos la nueva tarea con data.tarea
-      setListaTareas([...listaTareas,data.tarea])
-      reset()
+      if(listaTareas.some((tarea)=> tarea === data.tarea.trim()))
+      {
+        alert('Esta tarea ya existe')
+      }
+      else
+      {
+        // como listaTareas es un estado, hay una regal de react que dice que no se puede modificar, asi que hay que buscar una alternativa a push
+        // ... operador spread -> creamos un array nuevo que copia todo lo que ya habia en listaTareas (eso lo hace con spread), y al final del array agregamos la nueva tarea con data.tarea
+        setListaTareas([...listaTareas,data.tarea])
+        reset()
+      }
       
     }
 
